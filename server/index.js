@@ -17,8 +17,12 @@ app.use(cors())
 app.use('/posts',router)
 app.use('/user',userRoutes);
 
+app.get('/',(req,res)=>{
+     res.send('hello to memories API')
+})
+
 const CONNECTION_URL="mongodb+srv://sangamesh4514:sam@4514@cluster0.lun0j.mongodb.net/memory?retryWrites=true&w=majority"
-const PORT=process.env.PORT|5000
+const PORT=(process.env.PORT||5000)
 
 mongoose.connect(CONNECTION_URL,{"useNewUrlParser":true,"useUnifiedTopology":true})
      .then(()=>{app.listen(PORT,console.log(`connection successful at: ${PORT}`))})

@@ -11,10 +11,10 @@ const auth =(req,res,next)=>{
     if(token && isCustom){
       decodedData=jwt.verify(token,'4514')
 
-      req.userId=decodedData?.id
+      req.userId=decodedData.id
     }else{
       decodedData=jwt.decode(token);
-      req.userId=decodedData?.sub
+      req.userId=decodedData.sub
     }
       next()
   } catch (error) {
